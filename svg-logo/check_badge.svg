@@ -1,0 +1,13 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+
+    <polygon points="6,11 16,11 16,19 11,16.7 6,19" fill="#01377d" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- Main badge -->
+    <circle cx="11" cy="7" r="6" fill="#01377d" stroke-width="1" stroke="#ffffff"/>
+
+    <polyline points="8.8,6.6 11,8.8 13.8,5"
+      fill="none" stroke="#FFFFFF" stroke-width="1"
+      stroke-linecap="round" stroke-linejoin="round" />
+
+      
+</svg>

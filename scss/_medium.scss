@@ -1,0 +1,102 @@
+/* NAVIGATION STUFF GOES HERE  */
+
+#myMenuButton {
+  display: none;
+}
+
+nav#myNav {
+    display: flex;
+    justify-content: flex-start;
+
+    ul{
+        display: flex;
+        flex-direction: row;
+        li{
+            margin: 0 .3rem;
+            a{
+                padding: 0.8rem $gutter;
+            }
+        }
+    }
+}
+
+// Main
+
+#hero-section {
+  img {
+    height: auto;
+  }
+
+  .hero-text {
+    top: 15%;
+    left: 5%;
+    right: 0.75rem;
+    transform: none;
+    max-width: 25rem;
+    padding: 2rem 1.5rem;
+
+    h1 {
+      font-size: 1.65rem;
+    }
+
+    p {
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    button {
+      padding: 0.65rem 0.95rem;
+      font-size: 0.95rem;
+    }
+  }
+}
+
+.card-container {
+  grid-template-columns: 1fr 1fr;
+
+  .card {
+
+    h2 {
+      font-size: 1.4rem;
+      color: $secondaryColor;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      border: none;
+      padding: 0.75rem 1.25rem;
+      background-color: $primaryColor;
+      color: white;
+      font-weight: $normalWeight;
+      font-size: 1rem;
+      border-radius: 999px;
+      cursor: pointer;
+      box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.2);
+      transition: background-color 0.2s ease, transform 0.2s ease;
+
+      &:hover,
+      &:focus-visible {
+        transform: translateY(-2px);
+        outline: 1px solid white;
+        outline-offset: 1px;
+      }
+    }
+}
+}
+
+
+// --------------------------- REVIEWS ---------------------------
+.reviews-wrapper {
+  #customer_reviews {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+}

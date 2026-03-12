@@ -1,0 +1,29 @@
+header, nav, main {
+    max-width: 960px;
+    margin: auto;
+}
+
+/* NAVIGATION STUFF GOES HERE  */
+
+
+// Main
+
+#hero-section {
+  .hero-text {
+    max-width: 30rem;
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+    }
+
+    button {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+

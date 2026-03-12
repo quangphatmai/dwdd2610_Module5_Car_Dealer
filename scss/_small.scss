@@ -1,0 +1,420 @@
+/* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/*  Apply a natural box layout model to all elements  */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+} // end all elements
+
+/* --------------------------- BODY --------------------------- */
+body {
+  font-family: $defaultFont;
+  font-weight: $lightWeight;
+  min-width: 320px;
+}
+
+/* --------------------------- HEADER --------------------------- */
+
+header {
+  display: grid;
+  grid-template-columns: 90px auto;
+  column-gap: 0.5rem;
+  align-items: center; //vertically
+  padding: 0.5rem $gutter;
+  span {
+    font-size: 1.6rem;
+    font-weight: $normalWeight;
+    color: $primaryColor;;
+    margin-left: 0;
+  }
+
+  img{
+    display: block;
+    margin: 0;
+    width: 74px;
+    height: auto;
+  }
+} // end header
+
+/* --------------------------- NAVIGATION STUFF GOES HERE --------------------------- */
+
+#navWrapper {
+  background-color: #e3ecf8;
+}
+
+#myMenuButton::before {
+  content: "\2630";
+}
+
+button#myMenuButton {
+  background: white;
+  border: 2px solid white;
+  font-size: 1.6rem;
+  line-height: 1;
+  width: 44px;
+  height: 44px;
+  border-radius: 0.45rem;
+  cursor: pointer;
+  color: $secondaryColor;
+  position: absolute;
+  top: 0;
+  right: $gutter;
+}
+
+#myMenuButton.open::before {
+  content: "\2715";
+}
+
+nav#myNav {
+  display: grid;
+  grid-template-rows: minmax(0, 0fr);
+  transition: grid-template-rows 0.5s ease;
+
+  &.open {
+    grid-template-rows: minmax(0, 1fr);
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem $gutter 0.75rem $gutter;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    min-height: 0;
+    overflow: hidden;
+    li {
+      text-align: center;
+      list-style-type: none;
+      margin: 0.18rem 0;
+      a {
+        display: block;
+        padding: 0.8rem $gutter;
+        color: $secondaryColor;
+        text-decoration: none;
+        font-weight: $normalWeight;
+        letter-spacing: 0.02em;
+        border-radius: 0.4rem;
+        background: white;
+        box-shadow: 0 2px 6px rgba(1, 55, 125, 0.08);
+        transition: background-color 0.2s ease, transform 0.2s ease,
+          border-left-color 0.2s ease, color 0.2s ease;
+      }
+
+      a:hover,
+      a:focus-visible {
+        background: #e9f1fc;
+        border-left-color: $primaryColor;
+        color: $accentColor;
+        transform: translateX(3px);
+        outline: 2px solid $secondaryColor;
+        outline-offset: 2px;
+      }
+    }
+
+    li.active a {
+      background-color: $secondaryColor;
+      color: white;
+      box-shadow: none;
+    }
+  }
+}
+
+/* --------------------------- MAIN --------------------------- */
+
+#hero-section {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  img{
+    width: 100%;
+    height: auto;
+    display: block;
+
+  }
+
+  .hero-text{
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    right: 0.75rem;
+    transform: none;
+    max-width: 13rem;
+    padding: 1rem 0.5rem;
+    color: $secondaryColor;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.92),
+      rgba(232, 236, 240, 0.84)
+    );
+    border-radius: 0.75rem;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.20);
+
+    h1 {
+      margin: 0 0 0.55rem 0;
+      padding: 0;
+      color: $secondaryColor;
+      font-size: 1rem;
+      font-weight: bold;
+      line-height: 1.1;
+      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.45);
+    }
+
+    p {
+      margin: 0.6rem 0 0.8rem 0;
+      padding: 0;
+      font-weight: 400;
+      color: $secondaryColor;
+      font-size: 0.7rem;
+      line-height: 1.4;
+      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.35);
+    }
+
+    button {
+      border: none;
+      padding: 0.5rem 0.6rem;
+      background-color: $primaryColor;
+      color: white;
+      font-weight: $normalWeight;
+      font-size: 0.7rem;
+      border-radius: 999px;
+      cursor: pointer;
+      box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.2);
+      transition: background-color 0.2s ease, transform 0.2s ease;
+
+      &:hover,
+      &:focus-visible {
+        transform: translateY(-2px);
+        outline: 1px solid white;
+        outline-offset: 1px;
+      }
+    }
+  }
+}
+
+main {
+  h2 {
+    padding: 1rem $gutter.5rem $gutter;
+    font-size: 1.5rem;
+    color: $secondaryColor;
+    font-weight: $normalWeight;
+    margin-bottom: 0.75rem;
+  }
+  p {
+    margin: 0;
+    padding: 0.5rem $gutter;
+    color: #333;
+    line-height: $leading;
+  }
+} // end main
+
+
+.card-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1rem 1rem 1rem 1rem;
+  .card {
+    background-color: #f9f9f9;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 1px solid #e0e0e0;
+
+    img {
+      width: 150px;
+      height: auto;
+      border-radius: 0.5rem;
+      margin-bottom: 0.75rem;
+      position: relative
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      color: $secondaryColor;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      border: none;
+      padding: 0.5rem 1rem;
+      background-color: $primaryColor;
+      color: white;
+      font-weight: $normalWeight;
+      font-size: 0.8rem;
+      border-radius: 999px;
+      cursor: pointer;
+      box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.2);
+      transition: background-color 0.2s ease, transform 0.2s ease;
+
+      &:hover,
+      &:focus-visible {
+        transform: translateY(-2px);
+        outline: 1px solid white;
+        outline-offset: 1px;
+      }
+    }
+}
+}
+
+
+.card.inventory:hover img {
+  animation: pulse 1s ease-in-out infinite;
+}
+  // Pulse animation for the inventory card image
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+.card.financing:hover img {
+  animation: swing .75s ease-in-out infinite;
+}
+
+  // Swing animation for the financing card image
+    @keyframes swing {
+      0% {
+        transform: rotate(0deg);
+      }
+      25% {
+        transform: rotate(5deg);
+      }
+      50% {
+        transform: rotate(0deg);
+      }
+      75% {
+        transform: rotate(-5deg);
+      }
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+
+.card.certified:hover img {
+  animation: bounce .75s ease-in-out infinite;
+}
+
+  // Bounce animation for the certified card image
+    @keyframes bounce {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+.card.maintenance:hover img {
+  animation: spin 1.5s ease-in-out infinite;
+}
+
+  // Spin animation for the maintenance card image
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      25% {
+        transform: rotate(90deg);
+      }
+      50% {
+        transform: rotate(180deg);
+      }
+      75% {
+        transform: rotate(270deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+// --------------------------- REVIEWS ---------------------------
+.reviews-wrapper {
+  padding: 1rem $gutter;
+  h2 {
+    font-size: 1.5rem;
+    color: $secondaryColor;
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+  #customer_reviews {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    .review-card {
+      background-color: #f9f9f9;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.1);
+      border: 1px solid #e0e0e0;
+      h3{
+        font-size: 1.25rem;
+        color: $primaryColor;
+        margin: 0.5rem 0;
+      }
+
+      .star-rating-container{
+        display: flex;
+        align-items: center;
+
+          span{
+            margin-right: 5px;
+          }
+
+          img{
+          width: 25px;
+          height: auto;
+          border-radius: 0.5rem;
+          margin-bottom: 0;
+        }
+      
+      }
+
+      p {
+        font-size: 0.9rem;
+        color: #555;
+        margin: 0;
+        padding: 0.5rem 0;
+      }
+
+  }
+}
+}
+/* --------------------------- FOOTER --------------------------- */
+#footerWrapper {
+  background-color: $secondaryColor;
+} // end footer wrapper
+
+footer {
+  font-size: 0.85rem;
+  padding: 1rem $gutter;
+  color: white;
+  text-align: center;
+  line-height: $leading;
+  a {
+    color: white;
+  }
+} // end footer
